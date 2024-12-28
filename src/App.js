@@ -8,20 +8,20 @@ const customDictionary = {
 };
 
 function XSpellCheck() {
-  const [text, setText] = useState(""); // State for user input
-  const [suggestion, setSuggestion] = useState(""); // State for correction suggestion
+  const [text, setText] = useState(""); 
+  const [suggestion, setSuggestion] = useState(""); 
 
-  // Handle user input and check for spelling errors
+  
   const handleChange = (e) => {
     const input = e.target.value;
     setText(input);
 
     if (!input) {
-      setSuggestion(""); // Clear suggestion if input is empty
+      setSuggestion(""); 
       return;
     }
 
-    const words = input.split(" "); // Split input into words
+    const words = input.split(" "); 
     const firstIncorrectWord = words.find((word) => {
       const lowerCaseWord = word.toLowerCase();
       return customDictionary.hasOwnProperty(lowerCaseWord);
@@ -31,7 +31,7 @@ function XSpellCheck() {
       const correctedWord = customDictionary[firstIncorrectWord.toLowerCase()];
       setSuggestion(`Did you mean: ${correctedWord}?`);
     } else {
-      setSuggestion(""); // No incorrect words found
+      setSuggestion(""); 
     }
   };
 
